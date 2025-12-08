@@ -1,6 +1,0 @@
-streamlit
-yfinance
-prophet
-plotly
-googletrans
-pandas
