@@ -172,7 +172,7 @@ with col2:
 START_DEFAULT = "2015-01-01"
 
 # โหลดข้อมูลหุ้น
-@st.cache_data(ttl=3600)
+@st.cache_data
 def load_data(ticker, start_date):
     # แก้ไข: ดึงข้อมูลแบบรายสัปดาห์ (Weekly interval)
     data = yf.download(ticker, start_date, TODAY, interval="1wk")
@@ -394,3 +394,4 @@ if not data.empty:
 else:
 
     st.error("ไม่สามารถโหลดข้อมูลราคาย้อนหลังได้ กรุณาตรวจสอบ Ticker หรือช่วงวันที่")
+
