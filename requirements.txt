@@ -5,3 +5,4 @@ plotly
 deep-translator
 pandas
 wikipedia
+numpy
