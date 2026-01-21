@@ -1,8 +1,0 @@
-streamlit
-yfinance
-prophet
-plotly
-deep-translator
-pandas
-wikipedia
-numpy
