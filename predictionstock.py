@@ -54,7 +54,7 @@ with col1:
 
 # --- 1. ข้อมูลชุดเดิม (หุ้นรายตัวทั้งหมด) ---
 us_stocks_all = {
-    "CleanSpark (CLSK)": "CLSK", "Apple (AAPL)": "AAPL", "Microsoft (MSFT)": "MSFT", "Google (GOOGL)": "GOOGL",
+    "Apple (AAPL)": "AAPL", "Microsoft (MSFT)": "MSFT", "Google (GOOGL)": "GOOGL",
     "Amazon (AMZN)": "AMZN", "Meta (META)": "META", "Nvidia (NVDA)": "NVDA",
     "Tesla (TSLA)": "TSLA", "UnitedHealth Group (UNH)": "UNH", "Johnson & Johnson (JNJ)": "JNJ",
     "Visa (V)": "V", "JPMorgan Chase (JPM)": "JPM", "Exxon Mobil (XOM)": "XOM",
