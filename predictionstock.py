@@ -36,18 +36,15 @@ st.markdown(
 # ----------------------------------------------------------------------
 # 2. เลือกหมวดหมู่และเลือกหุ้น
 
-# 2. เลือกหมวดหมู่และเลือกหุ้น
-
 col1, col2 = st.columns(2)
 
 with col1:
-    # เพิ่มตัวเลือกกลุ่มอุตสาหกรรมใหม่เข้าไปใน list
     category = st.selectbox("เลือกหมวดหมู่", [
         "หุ้นสหรัฐฯ (ทั้งหมด)", 
         "หุ้นไทย (ทั้งหมด)", 
-        "กลุ่มโรงแรม/ท่องเที่ยว (Hotel & Tourism)",  # <-- เพิ่มใหม่
-        "กลุ่มบันเทิง (Entertainment)",            # <-- เพิ่มใหม่
-        "กลุ่มค้าปลีก (Retail)",                   # <-- เพิ่มใหม่
+        "กลุ่มโรงแรม/ท่องเที่ยว (Hotel & Tourism)",
+        "กลุ่มบันเทิง (Entertainment)",
+        "กลุ่มค้าปลีก (Retail)",
         "กองทุนรวม / ดัชนี", 
         "สินค้าโภคภัณฑ์ (ทองคำ)"
     ])
@@ -93,45 +90,44 @@ thai_stocks_all = {
     "เจ มาร์ท (JMART)": "JMART.BK", "ธนาคารกสิกรไทย (KBANK)": "KBANK.BK"
 }
 
-# --- 2. ข้อมูลชุดใหม่ (แยกกลุ่มตามที่ขอ ใส่กลุ่มละ 3 ตัว) ---
+# --- 2. ข้อมูลชุดใหม่ (แยกกลุ่มตามที่ขอ) ---
 
 # กลุ่มโรงแรม (ผสมไทย/US)
 hotel_stocks = {
-    "Marriott International (MAR) - US": "MAR",       # สหรัฐฯ
-    "Hilton Worldwide (HLT) - US": "HLT",             # สหรัฐฯ
-    "InterContinental Hotels Group (IHG) - US": "IHG", # สหรัฐฯ
-    "Hyatt Hotels (H) - US": "H",                      # สหรัฐฯ
-    "Choice Hotels (CHH) - US": "CHH",                # สหรัฐฯ
+    "Marriott International (MAR) - US": "MAR",
+    "Hilton Worldwide (HLT) - US": "HLT",
+    "InterContinental Hotels Group (IHG) - US": "IHG",
+    "Hyatt Hotels (H) - US": "H",
+    "Choice Hotels (CHH) - US": "CHH",
     "ไมเนอร์ อินเตอร์เนชั่นแนล (MINT) - TH": "MINT.BK",
     "โรงแรมเซ็นทรัลพลาซา (CENTEL) - TH": "CENTEL.BK",
     "ดิ เอราวัณ กรุ๊ป (ERW) - TH": "ERW.BK",
     "เอส โฮเทล แอนด์ รีสอร์ท (SHR) - TH": "SHR.BK",
     "แอสเสท เวิรด์ คอร์ป (AWC) - TH": "AWC.BK"
-    # คุณสามารถเพิ่มต่อได้ที่นี่ เช่น "Centel (CENTEL)": "CENTEL.BK"
 }
 
 # กลุ่มบันเทิง (ผสมไทย/US)
 entertainment_stocks = {
-    "Walt Disney (DIS) - US": "DIS",                  # สหรัฐฯ
-    "Netflix (NFLX) - US": "NFLX",                    # สหรัฐฯ
-    "Warner Bros. Discovery (WBD) - US": "WBD",        # สหรัฐฯ
-    "PARAMOUNT Global (PARA) - US": "PARA",            # สหรัฐฯ
-    "EA Sports (EA) - US": "EA",                        # สหรัฐฯ
-    "BEC World (BEC) - TH": "BEC.BK",                  # ไทย
-    "RS Public Company (RS) - TH": "RS.BK",            # ไทย
-    "GMM Grammy (GMM) - TH": "GMM.BK",                  # ไทย
-    "VGI PCL (VGI) - TH": "VGI.BK",                    # ไทย
-    "Major Cineplex (MAJOR) - TH": "MAJOR.BK"         # ไทย
+    "Walt Disney (DIS) - US": "DIS",
+    "Netflix (NFLX) - US": "NFLX",
+    "Warner Bros. Discovery (WBD) - US": "WBD",
+    "PARAMOUNT Global (PARA) - US": "PARA",
+    "EA Sports (EA) - US": "EA",
+    "BEC World (BEC) - TH": "BEC.BK",
+    "RS Public Company (RS) - TH": "RS.BK",
+    "GMM Grammy (GMM) - TH": "GMM.BK",
+    "VGI PCL (VGI) - TH": "VGI.BK",
+    "Major Cineplex (MAJOR) - TH": "MAJOR.BK"
 }
 
 # กลุ่มค้าปลีก (ผสมไทย/US)
 retail_stocks = {
-    "Walmart (WMT) - US": "WMT",                      # สหรัฐฯ
-    "Costco Wholesale (COST) - US": "COST",           # สหรัฐฯ
-    "Amazon (AMZN) - US": "AMZN",                    # สหรัฐฯ
-    "HD Supply Holdings (HDS) - US": "HDS",            # สหรัฐฯ
-    "TGT (TGT) - US": "TGT",                        # สหรัฐฯ
-    "CP ALL (CPALL 7-11) - TH": "CPALL.BK",           # ไทย
+    "Walmart (WMT) - US": "WMT",
+    "Costco Wholesale (COST) - US": "COST",
+    "Amazon (AMZN) - US": "AMZN",
+    "HD Supply Holdings (HDS) - US": "HDS",
+    "TGT (TGT) - US": "TGT",
+    "CP ALL (CPALL 7-11) - TH": "CPALL.BK",
     "CRC (Central Retail) - TH": "CRC.BK",
     "Big C Supercenter (BIGC) - TH": "BIGC.BK",
     "Tops Market (TOPS) - TH": "TOPS.BK",
@@ -190,67 +186,85 @@ def load_data(ticker, start_date):
     return data
 
 # ----------------------------------------------------------------------
-# 4. ข้อมูลบริษัท (Wikipedia) - [UPDATE 2: IMPROVED INDEX SEARCH]
-st.subheader("📄 ข้อมูลบริษัท / สินทรัพย์ (จาก wikipedia)")
+# 4. ข้อมูลบริษัท (yfinance เป็นหลัก / Wikipedia เป็น fallback สำหรับดัชนีและสินค้าโภคภัณฑ์)
+st.subheader("📄 ข้อมูลบริษัท / สินทรัพย์")
+
+# ชื่อบทความ Wikipedia สำหรับดัชนีและสินค้าโภคภัณฑ์ (yfinance ไม่มีคำอธิบายให้)
+SPECIAL_WIKI = {
+    "GC=F":     {"th": "ทองคำ", "en": "Gold"},
+    "SI=F":     {"th": "เงิน (โลหะ)", "en": "Silver"},
+    "HG=F":     {"th": "ทองแดง", "en": "Copper"},
+    "^GSPC":    {"th": "เอสแอนด์พี 500", "en": "S&P 500"},
+    "^IXIC":    {"th": "แนสแด็ก", "en": "Nasdaq Composite"},
+    "^SET.BK":  {"th": "ตลาดหลักทรัพย์แห่งประเทศไทย", "en": "Stock Exchange of Thailand"},
+    "TDEX.BK":  {"th": "SET50", "en": "SET50 Index"},
+}
+
+def _wiki_lookup(ticker):
+    """ค้น Wikipedia จากชื่อที่ map ไว้ (ไทยก่อน แล้วอังกฤษ)"""
+    mapped = SPECIAL_WIKI.get(ticker)
+    if not mapped:
+        return None, None
+    for lang in ("th", "en"):
+        title = mapped.get(lang)
+        if not title:
+            continue
+        try:
+            wikipedia.set_lang(lang)
+            page = wikipedia.page(title, auto_suggest=False)
+            return page.summary[:800] + "...", page.url
+        except Exception:
+            continue
+    return None, None
 
 @st.cache_data(ttl=24*3600)
-def get_wiki_company_info(label_name, ticker):
-    wikipedia.set_lang("th")
-    clean_name = label_name.split('(')[0].strip()
-    
-    # Logic การเลือกคำค้นหา (Keyword Selection)
-    search_candidates = []
-    
-    # 1. กลุ่ม Commodities
-    if "Gold" in label_name or "GC=F" in label_name:
-        search_candidates = ["ทองคำ", "Gold"]
-    elif "Silver" in label_name:
-        search_candidates = ["เงิน (โลหะ)", "Silver"]
-    elif "Copper" in label_name:
-        search_candidates = ["ทองแดง", "Copper"]
-        
-    # 2. กลุ่ม Indices (ดัชนี) - [FIX] แก้ให้ค้นหาเจอ
-    elif "^GSPC" in ticker or "S&P 500" in label_name:
-        search_candidates = ["เอสแอนด์พี 500", "S&P 500"]
-    elif "^IXIC" in ticker or "NASDAQ" in label_name:
-        search_candidates = ["แนสแด็ก", "NASDAQ"]
-    elif "^DJI" in ticker or "Dow Jones" in label_name:
-        search_candidates = ["ดัชนีเฉลี่ยอุตสาหกรรมดาวโจนส์", "Dow Jones Industrial Average"]
-    elif "SET Index" in label_name or "^SET.BK" in ticker:
-        search_candidates = ["ดัชนีราคาหุ้นตลาดหลักทรัพย์แห่งประเทศไทย", "ตลาดหลักทรัพย์แห่งประเทศไทย"]
-    elif "SET50" in label_name or "TDEX" in ticker:
-        search_candidates = ["SET50", "ดัชนี SET50", "ตลาดหลักทรัพย์แห่งประเทศไทย"]
-        
-    # 3. หุ้นรายตัว (Stocks)
-    else:
-        search_candidates = [f"{clean_name} (บริษัท)", f"บริษัท {clean_name}", f"{clean_name} Inc.", clean_name]
-        if "Amazon" in clean_name: search_candidates.insert(0, "อเมซอน.คอม")
-        elif "Meta" in clean_name: search_candidates.insert(0, "เมตา แพลตฟอร์มส์")
-        elif "Google" in clean_name: search_candidates.insert(0, "กูเกิล")
-        elif "PTT" in clean_name: search_candidates.insert(0, "ปตท. (บริษัท)")
+def get_company_info(label_name, ticker):
+    result = {"summary": None, "url": None, "source": None, "meta": {}}
 
-    found_summary, found_url = None, None
-    for query in search_candidates:
-        try:
-            page = wikipedia.page(query, auto_suggest=False)
-            content_snippet = page.content[:500]
-            # Keyword filter
-            keywords = ["บริษัท", "Inc", "Corporation", "Holding", "หุ้น", "ธุรกิจ", "ธาตุ", "โลหะ", "ดัชนี", "ตลาดหลักทรัพย์"]
-            if any(k in content_snippet for k in keywords):
-                found_summary = page.summary[:600] + "..."
-                found_url = page.url
-                break
-        except: continue
-    return found_summary, found_url
+    # 1) yfinance (ใช้ได้กับหุ้นเกือบทุกตัว ไม่ต้อง mapping)
+    try:
+        info = yf.Ticker(ticker).info
+        desc = info.get("longBusinessSummary")
+        if desc:
+            result["summary"] = desc[:800] + ("..." if len(desc) > 800 else "")
+            result["url"] = info.get("website") or f"https://finance.yahoo.com/quote/{ticker}"
+            result["source"] = "Yahoo Finance (yfinance)"
+            result["meta"] = {
+                "Sector": info.get("sector"),
+                "Industry": info.get("industry"),
+                "Employees": info.get("fullTimeEmployees"),
+                "Country": info.get("country"),
+            }
+            return result
+    except Exception:
+        pass
 
-# ส่ง ticker เข้าไปช่วย check ด้วย
-wiki_summary, wiki_url = get_wiki_company_info(selected_label, selected_stock)
+    # 2) Fallback: Wikipedia (เฉพาะดัชนี/สินค้าโภคภัณฑ์ที่ map ไว้)
+    summary, url = _wiki_lookup(ticker)
+    if summary:
+        result["summary"] = summary
+        result["url"] = url
+        result["source"] = "Wikipedia"
+    return result
+
+# ส่วนแสดงผล
+company = get_company_info(selected_label, selected_stock)
 st.markdown(f"### 🏢 {selected_label}")
-if wiki_summary:
-    st.info(wiki_summary)
-    st.markdown(f"🔗 [อ่านฉบับเต็มบน Wikipedia]({wiki_url})")
+if company["summary"]:
+    st.info(company["summary"])
+
+    meta = {k: v for k, v in company["meta"].items() if v}
+    if meta:
+        meta_cols = st.columns(len(meta))
+        for mc, (k, v) in zip(meta_cols, meta.items()):
+            with mc:
+                value = f"{v:,}" if isinstance(v, int) else str(v)
+                st.metric(k, value)
+
+    link_text = "เว็บไซต์บริษัท" if company["source"] == "Yahoo Finance (yfinance)" else "อ่านฉบับเต็มบน Wikipedia"
+    st.markdown(f"🔗 [{link_text}]({company['url']})  ·  แหล่งข้อมูล: {company['source']}")
 else:
-    st.warning(f"⚠️ ไม่พบข้อมูล '{selected_label}' ในฐานข้อมูล Wikipedia ภาษาไทย")
+    st.warning(f"⚠️ ไม่พบข้อมูลของ '{selected_label}' จาก Yahoo Finance และ Wikipedia")
 
 
 # ----------------------------------------------------------------------
@@ -260,7 +274,6 @@ st.subheader(f"📰 ข่าวสารล่าสุด: {selected_label}")
 
 @st.cache_data(ttl=3600)
 def get_google_news(query_text, is_commodity=False, is_index=False):
-    # [UPDATE 3] Logic การค้นหาข่าวให้ครอบคลุม Index
     final_query = ""
     
     if is_commodity:
@@ -269,14 +282,12 @@ def get_google_news(query_text, is_commodity=False, is_index=False):
         elif "HG=F" in query_text: final_query = "ราคาทองแดง Copper"
         else: final_query = query_text
     elif is_index:
-        # ถ้าเป็น Index ให้ตัดรหัสย่อทิ้ง ค้นแต่ชื่อ
         if "SET" in query_text or "TDEX" in query_text: final_query = "หุ้นไทย SET Index SET50"
         elif "S&P" in query_text: final_query = "ดัชนี S&P 500"
         elif "Dow" in query_text: final_query = "ดัชนี ดาวโจนส์"
         elif "NASDAQ" in query_text: final_query = "ดัชนี NASDAQ"
         else: final_query = query_text
     else:
-        # ถ้าเป็นหุ้น
         clean_text = query_text.replace("(", " ").replace(")", " ").strip()
         final_query = f"{clean_text} หุ้น"
     
@@ -365,12 +376,10 @@ if not data.empty and len(data) > 0:
     try:
         m = Prophet()
         
-        # [UPDATE 4] Logic วันหยุดแบบ Hybrid (รายตัว)
-        # ถ้า ticker ลงท้ายด้วย .BK หรืออยู่ในหุ้นไทย ให้ใช้วันหยุดไทย
+        # Logic วันหยุดแบบ Hybrid (รายตัว)
         if selected_stock.endswith(".BK") or category == "หุ้นไทย":
             m.add_country_holidays(country_name='TH')
         else:
-            # หุ้นสหรัฐ, ทองคำ, Index ต่างประเทศ ใช้วันหยุด US
             m.add_country_holidays(country_name='US')
 
         with st.spinner('🤖 กำลังเทรนโมเดล Prophet... (กรุณารอสักครู่)'):
@@ -546,7 +555,7 @@ if not data.empty and len(data) > 0:
             st.success("✅ สถานะ: ทำงานสมบูรณ์แบบ (ข้อมูลรายวันทำให้ระบุวันหยุดได้ตรงวัน)")
             st.latex(r"h(t) = \sum_{i} \kappa_i \cdot 1_{\{t \in D_i\}}")
 
-            st.markdown("#### 4. $\epsilon_t$: Noise")
+            st.markdown(r"#### 4. $\epsilon_t$: Noise")
             st.latex(r"\epsilon_t \sim \text{Normal}(0, \sigma^2)")
 
         # ----------------------------------------------------------------------
